@@ -1,10 +1,7 @@
 # bunyan-webhook
-[![bunyan-slack](http://img.shields.io/npm/v/bunyan-slack.svg?style=flat-square)](https://www.npmjs.com/package/bunyan-slack)
-[![bunyan-slack](http://img.shields.io/npm/dm/bunyan-slack.svg?style=flat-square)](https://www.npmjs.com/package/bunyan-slack)
-[![bunyan-slack](http://img.shields.io/npm/l/bunyan-slack.svg?style=flat-square)](https://www.npmjs.com/package/bunyan-slack)
-[![Build Status](https://img.shields.io/travis/qualitybath/bunyan-slack.svg?style=flat-square)](https://travis-ci.org/qualitybath/bunyan-slack)
-[![Coveralls](https://img.shields.io/coveralls/qualitybath/bunyan-slack.svg?style=flat-square)](https://coveralls.io/r/qualitybath/bunyan-slack)
-[![code climate](https://img.shields.io/codeclimate/github/qualitybath/bunyan-slack.svg?style=flat-square)](https://codeclimate.com/github/qualitybath/bunyan-slack)
+[![bunyan-webhook](http://img.shields.io/npm/v/bunyan-webhook.svg?style=flat-square)](https://www.npmjs.com/package/bunyan-webhook)
+[![bunyan-webhook](http://img.shields.io/npm/dm/bunyan-webhook.svg?style=flat-square)](https://www.npmjs.com/package/bunyan-webhook)
+[![bunyan-webhook](http://img.shields.io/npm/l/bunyan-webhook.svg?style=flat-square)](https://www.npmjs.com/package/bunyan-webhook)
 
 **Bunyan stream for Generic webhook integration**
 
@@ -44,66 +41,6 @@ new BunyanWebhook({
 	webhook_url: "your_webhook_url"
 }, function(error){
 	console.log(error);
-});
-```
-
-## Custom Formatters
-
-By default the logs are formatted like so: `[LOG_LEVEL] message`, unless you specify a `customFormatter` function.
-
-```javascript
-	log = bunyan.createLogger({
-	name: "myApp",
-	stream: new BunyanSlack({
-		webhook_url: "your_webhook_url",
-		channel: "#your_channel",
-		username: "your_username",
-		customFormatter: function(record, levelName){
-			return {text: "[" + levelName + "] " + record.msg }
-		}
-	}),
-	level: "error"
-});
-```
-## Custom Formatter Options
-> Check the [slack docs](https://api.slack.com/incoming-webhooks) for custom formatter options.
-
-### Putting it all together
-```javascript
-var bunyan  = require("bunyan"),
-	BunyanSlack = require('bunyan-slack'),
-	log;
-
-log = bunyan.createLogger({
-	name: 'myapp',
-	stream: new BunyanSlack({
-		webhook_url: 'your_webhook_url',
-		icon_url: "your_icon_url",
-		channel: '#your_channel',
-		username: "your_username",
-		icon_emoji: ":scream_cat:",
-		customFormatter: function(record, levelName) {
-			return {
-				attachments: [{
-					fallback: "Required plain-text summary of the attachment.",
-					color: '#36a64f',
-					pretext: "Optional text that appears above the attachment block",
-					author_name: "Seth Pollack",
-					author_link: "http://sethpollack.net",
-					author_icon: "http://www.gravatar.com/avatar/3f5ce68fb8b38a5e08e7abe9ac0a34f1?s=200",
-					title: "Slack API Documentation",
-					title_link: "https://api.slack.com/",
-					text: "Optional text that appears within the attachment",
-					fields: [{
-						title: "We have a new " + levelName + " log",
-						value: ":scream_cat: " + record.msg,
-						short: true
-					}]
-				}]
-			};
-		}
-	}),
-	level: 'error'
 });
 ```
 
