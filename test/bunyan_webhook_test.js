@@ -36,7 +36,7 @@ describe('bunyan-webhook', function() {
 		it('should use error handler', function(done) {
 			var log = Bunyan.createLogger({
 				name: 'myapp',
-				stream: new BunyanSlack({
+				stream: new BunyanWebhook({
 					webhook_url: 'mywebhookurl'
 				}, function(error) {
 					expect(error).to.instanceof(TypeError);
@@ -50,7 +50,7 @@ describe('bunyan-webhook', function() {
 		it('should use request error handler', function(done) {
 			var log = Bunyan.createLogger({
 				name: 'myapp',
-				stream: new BunyanSlack({
+				stream: new BunyanWebhook({
 					webhook_url: 'mywebhookurl'
 				}, function(error) {
 					expect(error).to.eql('FAKE ERROR');
