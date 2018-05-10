@@ -1,6 +1,6 @@
 {
   "name": "bunyan-webhook",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "generic webhook stream for bunyan",
   "main": "./lib/bunyan-webhook",
   "dependencies": {
