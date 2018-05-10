@@ -1,8 +1,8 @@
 {
-  "name": "bunyan-slack",
+  "name": "bunyan-webhook",
   "version": "0.0.10",
-  "description": "slack stream for bunyan",
-  "main": "./lib/bunyan-slack",
+  "description": "generic webhook stream for bunyan",
+  "main": "./lib/bunyan-webhook",
   "dependencies": {
     "extend.js": "0.0.2",
     "request": "^2.51.0"
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/qualitybath/bunyan-slack"
+    "url": "https://github.com/garrettsutula/bunyan-webhook"
   },
   "keywords": [
     "logging",
@@ -32,14 +32,18 @@
     "test": "istanbul cover _mocha --report lcovonly"
   },
   "bugs": {
-    "url": "https://github.com/qualitybath/bunyan-slack/issues"
+    "url": "https://github.com/garrettsutula/bunyan-webhook/issues"
   },
   "contributors": [
+    {
+      "name": "Garrett Sutula",
+      "email": "garrett.sutula@gmail.com"
+    },
     {
       "name": "Seth Pollack",
       "email": "seth@sethpollack.net"
     }
   ],
-  "author": "Seth Pollack",
+  "author": "Garrett Sutula",
   "license": "MIT"
 }

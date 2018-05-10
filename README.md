@@ -1,4 +1,4 @@
-# bunyan-slack
+# bunyan-webhook
 [![bunyan-slack](http://img.shields.io/npm/v/bunyan-slack.svg?style=flat-square)](https://www.npmjs.com/package/bunyan-slack)
 [![bunyan-slack](http://img.shields.io/npm/dm/bunyan-slack.svg?style=flat-square)](https://www.npmjs.com/package/bunyan-slack)
 [![bunyan-slack](http://img.shields.io/npm/l/bunyan-slack.svg?style=flat-square)](https://www.npmjs.com/package/bunyan-slack)
@@ -6,7 +6,7 @@
 [![Coveralls](https://img.shields.io/coveralls/qualitybath/bunyan-slack.svg?style=flat-square)](https://coveralls.io/r/qualitybath/bunyan-slack)
 [![code climate](https://img.shields.io/codeclimate/github/qualitybath/bunyan-slack.svg?style=flat-square)](https://codeclimate.com/github/qualitybath/bunyan-slack)
 
-**Bunyan stream for Slack chat integration**
+**Bunyan stream for Generic webhook integration**
 
 First install bunyan...
 
@@ -14,40 +14,34 @@ First install bunyan...
 npm install bunyan
 ```
 
-Then install bunyan-slack
+Then install bunyan-webhook
 
 ```
-npm install bunyan-slack
+npm install bunyan-webhook
 ```
 
 ## Basic Setup
 
 ```javascript
 var bunyan  = require("bunyan"),
-	BunyanSlack = require('bunyan-slack'),
+	BunyanSlack = require('bunyan-webhook'),
 	log;
 
 log = bunyan.createLogger({
 	name: "myApp",
-	stream: new BunyanSlack({
-		webhook_url: "your_webhook_url",
-		channel: "#your_channel",
-		username: "your_username",
+	stream: new BunyanWebhook({
+		webhook_url: "your_webhook_url"
 	}),
 	level: "error"
 });
 
-log.error("hello bunyan slack");
+log.error("hello bunyan webhook");
 ```
 You can also pass an optional error handler.
 
-> Specify a Slack channel by name with `"channel": "#other-channel"`, or send a Slackbot message to a specific user with `"channel": "@username"`.
-
 ```javascript
-new BunyanSlack({
-	webhook_url: "your_webhook_url",
-	channel: "#your_channel",
-	username: "your_username",
+new BunyanWebhook({
+	webhook_url: "your_webhook_url"
 }, function(error){
 	console.log(error);
 });
@@ -114,13 +108,13 @@ log = bunyan.createLogger({
 ```
 
 ## Authors
+* [Garrett Sutula](https://github.com/garrettsutula/)
 * [Seth Pollack](https://github.com/sethpollack)
 
 ***
-This library was adapted from  [winston-bishop-slack](https://github.com/lapwinglabs/winston-bishop-slack)
+This library was adapted from  [bunyan-slack](https://github.com/qualitybath/bunyan-slack)
 
 The MIT License  
-Copyright (c) 2015 [QualityBath.com](https://www.qualitybath.com/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
