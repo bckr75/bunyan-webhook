@@ -1,19 +1,19 @@
 {
   "name": "bunyan-webhook",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "generic webhook stream for bunyan",
   "main": "./lib/bunyan-webhook",
   "dependencies": {
     "extend.js": "0.0.2",
-    "request": "^2.51.0"
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "bunyan": "^1.3.3",
-    "chai": "^4.1.2",
-    "coveralls": "^3.0.1",
+    "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
     "istanbul": "^0.4.5",
-    "mocha": "^5.1.1",
-    "sinon": "^5.0.7"
+    "mocha": "^7.1.2",
+    "sinon": "^9.0.2"
   },
   "repository": {
     "type": "git",
